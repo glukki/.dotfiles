@@ -12,6 +12,10 @@ cd .dotfiles
 stow .
 ```
 
+More on `stow`
+-------------
+Watch: https://www.youtube.com/watch?v=y6XCebnB9gs
+
 License
 -------
 This content is released under the [WTFPL License](http://www.wtfpl.net).
