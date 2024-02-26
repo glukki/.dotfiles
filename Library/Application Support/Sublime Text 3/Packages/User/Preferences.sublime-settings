@@ -1,0 +1,15 @@
+{
+	"atomic_save": true,
+	"bold_folder_labels": true,
+	"ensure_newline_at_eof_on_save": true,
+	"fallback_encoding": "Cyrillic (Windows 1251)",
+	"font_size": 21,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"save_on_focus_lost": false,
+	"show_encoding": true,
+	"trim_trailing_white_space_on_save": true,
+	"theme": "auto",
+}
