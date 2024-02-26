@@ -1,0 +1,13 @@
+{
+    "*.md": {
+        "rmtrailingws": false
+    },
+    "autosu": true,
+    "diffgutter": true,
+    "fastdirty": true,
+    "mkparents": true,
+    "rmtrailingws": true,
+    "tabmovement": true,
+    "tabsize": 2,
+    "tabstospaces": true
+}
