@@ -7,8 +7,8 @@ Install
 ```
 brew install stow
 cd ~
-git clone git@github.com:glukki/dotfiles.git
-cd dotfiles
+git clone git@github.com:glukki/.dotfiles.git
+cd .dotfiles
 stow .
 ```
 
