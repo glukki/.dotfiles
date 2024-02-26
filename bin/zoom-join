@@ -1,0 +1,23 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+CONFERENCE=${1:-}
+PASSWORD=${2:-}
+
+
+if [[ -z "$CONFERENCE" ]]; then
+	echo "Usage: zoom-join conference-id [password]"
+	exit;
+fi
+
+URL="zoommtg://zoom.us/join?confno=$CONFERENCE"
+
+if [[ -n "$PASSWORD" ]]; then
+	URL="$URL&pwd=$PASSWORD"
+fi
+
+open $URL
+
+# zoommtg://zoom.us/join?confno=123456789&pwd=xxxx
+# docs: https://marketplace.zoom.us/docs/guides/guides/client-url-schemes

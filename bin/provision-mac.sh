@@ -1,0 +1,156 @@
+#!/bin/sh
+
+# Mac provisioning script
+
+# UI
+defaults write .GlobalPreferences AppleAccentColor 1
+defaults write .GlobalPreferences AppleHighlightColor "1.000000 0.874510 0.701961 Orange"
+defaults write .GlobalPreferences AppleInterfaceStyle Dark
+defaults write .GlobalPreferences AppleEnableSwipeNavigateWithScrolls 0
+defaults write .GlobalPreferences AppleShowAllExtensions 1
+defaults write .GlobalPreferences AppleShowScrollBars Always
+defaults write .GlobalPreferences AppleWindowTabbingMode always
+defaults write .GlobalPreferences _HIHideMenuBar 1
+defaults write .GlobalPreferences NSQuitAlwaysKeepsWindows 1
+
+# Sound
+defaults write .GlobalPreferences com.apple.sound.beep.feedback 0
+defaults write .GlobalPreferences com.apple.sound.beep.flash 0
+
+# Keyboard
+defaults write .GlobalPreferences NSAutomaticDashSubstitutionEnabled 1
+defaults write .GlobalPreferences NSAutomaticPeriodSubstitutionEnabled 0
+defaults write .GlobalPreferences NSAutomaticQuoteSubstitutionEnabled 1
+defaults write .GlobalPreferences NSAutomaticSpellingCorrectionEnabled 1
+defaults write .GlobalPreferences NSAutomaticTextCompletionCollapsed 1
+defaults write .GlobalPreferences NSAutomaticTextCompletionEnabled 1
+defaults write .GlobalPreferences WebAutomaticSpellingCorrectionEnabled 1
+
+# Mouse
+defaults write .GlobalPreferences com.apple.mouse.scaling -1 # no mouse acceleration
+defaults write .GlobalPreferences com.apple.springing.enabled 1
+defaults write .GlobalPreferences com.apple.trackpad.forceClick 1
+
+# Finder
+defaults write com.apple.finder FXEnableExtensionChangeWarning 0
+defaults write com.apple.finder FXRemoveOldTrashItems 1
+defaults write com.apple.finder ShowRecentTags 0
+defaults write com.apple.finder NewWindowTarget "PfHm"
+defaults write com.apple.finder NewWindowTargetPath "file:///Users/glukki/"
+
+# Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+# Shell
+brew install fish
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+curl -L https://get.oh-my.fish | fish
+
+# Taps
+brew tap heroku/brew
+brew tap mongodb/brew
+
+# Shell apps
+brew install curl
+brew install direnv
+brew install dnsmasq
+brew install cloudflare/cloudflare/cloudflared
+brew install parallel
+brew install teleport
+brew install duti
+brew install exercism
+brew install ffmpeg
+brew install gh
+brew install git
+brew install gnu-time
+brew install go
+brew install graphviz
+brew install hostess
+brew install htop
+brew install httrack
+brew install hub
+brew install jq
+brew install mas
+brew install micro
+brew install mongodb-community
+brew install node
+brew install nvm
+brew install rclone
+brew install rtmpdump
+brew install rust
+brew install speedtest-cli
+brew install stow
+brew install tldr
+brew install watchman
+brew install wget
+brew install youtube-dl
+
+# Font
+brew tap homebrew/cask-fonts
+brew cask install font-hack
+
+# GUI apps
+brew cask install iterm2
+defaults write com.googlecode.iterm2 AlternateMouseScroll -bool true
+
+brew cask install authy
+brew cask install balenaetcher
+brew cask install dash
+brew cask install discord
+brew cask install djview
+brew cask install docker
+brew cask install figma
+brew cask install google-chrome
+brew cask install hammerspoon
+brew cask install imageoptim
+brew cask install insomnia
+brew cask install jetbrains-toolbox
+brew cask install mongodb-compass-community
+brew cask install mpv
+brew cask install obs
+brew cask install resilio-sync
+brew cask install slack
+brew cask install spotify
+brew cask install sublime-merge
+brew cask install sublime-text
+brew cask install teamviewer
+brew cask install telegram
+brew cask install toggl
+brew cask install transmission
+brew cask install tunnelblick
+brew cask install virtualbox
+brew cask install virtualbox-extension-pack
+brew cask install visual-studio-code
+brew cask install zoom
+
+# associate file extensions with mpv player
+duti -s io.mpv avi viewer
+duti -s io.mpv mkv viewer
+duti -s io.mpv mp4 viewer
+duti -s io.mpv m4v viewer
+duti -s io.mpv webm viewer
+duti -s com.sublimetext.4 txt editor
+duti -s com.sublimetext.4 csv editor
+
+
+# Mac App Store
+mas install 723185815 & # iZip Viewer
+mas install 409183694 & # Keynote
+mas install 405399194 & # Kindle
+mas install 533696630 & # Webcam Settings
+mas install 1107421413 & # 1Blocker
+mas install 858446756 & # World Clock Pro
+mas install 1496833156 & # Playgrounds
+mas install 407963104 & # Pixelmator
+mas install 1153157709 & # Speedtest
+mas install 409203825 & # Numbers
+mas install 497799835 & # Xcode
+mas install 1147396723 & # WhatsApp
+mas install 409201541 & # Pages
+mas install 1137020764 & # NotePlan 2
+mas install 408981434 & # iMovie
+mas install 1176895641 & # Spark
+mas install 1081413713 & # GIF Brewery by Gfycat
+mas install 566555032 & # SuperGenPass
+mas install 470158793 & # Keka

@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+FILE=${1:-}
+
+if [[ -z "$FILE" ]]; then
+        echo "Usage: image-optim <file>"
+        exit;
+fi
+
+open -a /Applications/ImageOptim.app "${FILE}"

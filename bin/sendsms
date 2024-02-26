@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PHONE=$1
+MESSAGE=$2
+
+SCRIPT="tell application 'Messages' to send '$MESSAGE' to buddy '$PHONE' of service 'SMS'"
+#echo $SCRIPT
+
+osascript -e '$SCRIPT'

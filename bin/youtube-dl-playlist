@@ -1,0 +1,3 @@
+#!/bin/sh
+
+youtube-dl --batch-file playlist.txt --download-archive archive.txt

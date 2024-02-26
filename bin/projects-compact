@@ -1,0 +1,3 @@
+#!/bin/sh
+
+hdiutil convert ~/Drives/projects.sparsebundle -format UDSB -tgtimagekey sparse-band-size=2048 -o ~/Drives/projects-compact.sparsebundle

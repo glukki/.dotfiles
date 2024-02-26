@@ -1,0 +1,31 @@
+#!/bin/bash
+
+SLAVE_EXT_REGEX='.(?:mka|mp3)$'
+#echo SLAVE_EXT_REGEX $SLAVE_EXT_REGEX
+
+SLAVE_TRACK=$2
+#echo SLAVE_TRACK $SLAVE_TRACK
+
+MAIN_FILE=$(pwd)/$(dirname "$1")/$(basename "$1")
+#echo MAIN_FILE $MAIN_FILE
+
+SLAVE_BASE=${MAIN_FILE%.*}
+#echo SLAVE_BASE $SLAVE_BASE
+
+SLAVE_FILE=$(ls -1 "$SLAVE_BASE"* | egrep $SLAVE_EXT_REGEX | head -n 1)
+#echo SLAVE_FILE $SLAVE_FILE
+
+ARG_SLAVE=''
+ARG_TRACK=''
+
+if [ ! -z "$SLAVE_FILE" -a "$SLAVE_FILE" != " " ]; then
+  ARG_SLAVE="--input-slave=$SLAVE_FILE"
+#  echo ARG_SLAVE $ARG_SLAVE
+
+  if [ ! -z "$SLAVE_TRACK" -a "$SLAVE_TRACK" != " " ]; then
+    ARG_TRACK="--audio-track=$SLAVE_TRACK"
+#    echo ARG_TRACK $ARG_TRACK
+  fi
+fi
+
+open -a VLC --args "$MAIN_FILE" "$ARG_SLAVE" "$ARG_TRACK"

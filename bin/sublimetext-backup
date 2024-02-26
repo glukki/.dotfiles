@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+git add .
+git commit -m "Automatic backup at "$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+git push

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rclone sync ~/Drives/projects.sparsebundle remote:drives/projects.sparsebundle --transfers 64 -P
