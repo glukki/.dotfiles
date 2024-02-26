@@ -1,0 +1,17 @@
+[user]
+	email = glukki.spb.ru@gmail.com
+	name = Vitalii (glukki) Meshchaninov
+[push]
+	default = simple
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[rebase]
+	autosquash = true
+[commit]
+[includeif "gitdir:/Volumes/projects/"]
+	path = /Volumes/projects/.gitconfig
+[init]
+	defaultBranch = main
