@@ -45,7 +45,7 @@ defaults write com.apple.finder NewWindowTargetPath "file:///Users/glukki/"
 brew install fish
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
-curl -L https://get.oh-my.fish | fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 # Taps
 brew tap heroku/brew
