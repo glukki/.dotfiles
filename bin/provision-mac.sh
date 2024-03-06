@@ -86,6 +86,9 @@ brew install watchman
 brew install wget
 brew install youtube-dl
 
+# Radicle
+curl -sSf https://radicle.xyz/install | sh
+
 # Font
 brew tap homebrew/cask-fonts
 brew cask install font-hack
