@@ -9,7 +9,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [rebase]
-	autosquash = true
+	autosquash = false
 [commit]
 [includeif "gitdir:/Volumes/projects/"]
 	path = /Volumes/projects/.gitconfig
