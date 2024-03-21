@@ -1,8 +1,15 @@
 #!/bin/sh
 
-echo Initial version: $(rad --version)
+echo Old version: $(rad --version)
 
+needRestart=$(rad node status | grep "running")
+
+rad node stop
 curl -sSf https://radicle.xyz/install | sh
 
 echo
-echo Resulting version: $(rad --version)
+echo New version: $(rad --version)
+
+if [[ -n "$needRestart" ]]; then
+  rad node start
+fi
