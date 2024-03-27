@@ -26,3 +26,6 @@ end
 function gpsup
   git push --set-upstream origin (git branch | grep \* | cut -d ' ' -f2) $argv
 end
+function gcbt
+  git checkout -b task/$argv origin/main
+end
