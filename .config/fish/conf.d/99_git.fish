@@ -6,7 +6,7 @@ abbr -a gb          git branch -vv
 abbr -a gcb         git checkout -b
 abbr -a gsb         git status -sb
 abbr -a glr         git pull --rebase --autostash
-abbr -a glpr        "git log --pretty=format:'* %s' HEAD ^origin/main | tac"
+abbr -a glpr        git log --reverse --pretty=format:'* %s' HEAD ^origin/main
 abbr -a ggr         git grep
 abbr -a gpfl        git push --force-with-lease
 abbr -a gpft        git push --follow-tags
