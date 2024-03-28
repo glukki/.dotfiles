@@ -4,6 +4,8 @@
 abbr -a gap         git add -p
 abbr -a gb          git branch -vv
 abbr -a gcb         git checkout -b
+abbr -a gcmc        git commit -m \"[CHORE] \"
+abbr -a gcmt        git commit -m \"[\$\(git rev-parse --abbrev-ref HEAD | sed \'s/task\\///\'\)] \"
 abbr -a gsb         git status -sb
 abbr -a glr         git pull --rebase --autostash
 abbr -a glpr        git log --reverse --pretty=format:'* %s' HEAD ^origin/main
