@@ -8,7 +8,7 @@ abbr -a gcmc        git commit -m \"[CHORE] \"
 abbr -a gcmt        git commit -m \"[\$\(git rev-parse --abbrev-ref HEAD | sed \'s/task\\///\'\)] \"
 abbr -a gsb         git status -sb
 abbr -a glr         git pull --rebase --autostash
-abbr -a glpr        git log --reverse --pretty=format:'* %s' HEAD ^origin/main
+abbr -a glpr        git log --reverse --pretty=\"format:'* %s'\" HEAD ^origin/main
 abbr -a ggr         git grep
 abbr -a gpfl        git push --force-with-lease
 abbr -a gpft        git push --follow-tags
