@@ -73,7 +73,6 @@ brew install hub
 brew install jq
 brew install mas
 brew install micro
-brew install mongodb-community
 brew install node
 brew install nvm
 brew install rclone
@@ -109,9 +108,7 @@ brew cask install hammerspoon
 brew cask install imageoptim
 brew cask install insomnia
 brew cask install jetbrains-toolbox
-brew cask install mongodb-compass-community
 brew cask install mpv
-brew cask install obs
 brew cask install resilio-sync
 brew cask install slack
 brew cask install spotify
