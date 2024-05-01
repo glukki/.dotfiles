@@ -5,7 +5,9 @@ IFS=$'\n\t'
 needRestart=$(rad node status | grep -c "running" || true)
 
 rad node stop
-tar czvf ~/radicle-backups_$(date +"%Y-%m-%d").tgz ~/.radicle
+
+echo Making backup
+tar -caf ~/radicle-backups_"$(date -Idate)".tar.gz --exclude control.sock -C "$(rad self --home)" .
 
 echo
 echo Old version: $(rad --version)
