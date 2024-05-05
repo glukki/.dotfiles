@@ -64,7 +64,6 @@ brew install ffmpeg
 brew install gh
 brew install git
 brew install gnu-time
-brew install go
 brew install graphviz
 brew install hostess
 brew install htop
