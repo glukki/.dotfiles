@@ -1,5 +1,5 @@
-hs.loadSpoon("SpoonInstall")
-local SpoonInstall = spoon.SpoonInstall
+local SpoonInstall = hs.loadSpoon("SpoonInstall")
+
 SpoonInstall:asyncUpdateAllRepos()
 
 SpoonInstall:andUse("ReloadConfiguration", { start = true })
