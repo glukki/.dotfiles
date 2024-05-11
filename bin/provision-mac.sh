@@ -99,7 +99,6 @@ brew cask install authy
 brew cask install balenaetcher
 brew cask install dash
 brew cask install discord
-brew cask install djview
 brew cask install docker
 brew cask install figma
 brew cask install google-chrome
@@ -113,9 +112,7 @@ brew cask install slack
 brew cask install spotify
 brew cask install sublime-merge
 brew cask install sublime-text
-brew cask install teamviewer
 brew cask install telegram
-brew cask install toggl
 brew cask install transmission
 brew cask install tunnelblick
 brew cask install virtualbox
