@@ -58,6 +58,7 @@ brew install dnsmasq
 brew install cloudflare/cloudflare/cloudflared
 brew install parallel
 brew install teleport
+brew install difftastic
 brew install duti
 brew install exercism
 brew install ffmpeg
@@ -72,6 +73,7 @@ brew install hub
 brew install jq
 brew install mas
 brew install micro
+brew install neovim
 brew install node
 brew install nvm
 brew install rclone
@@ -83,6 +85,7 @@ brew install tldr
 brew install watchman
 brew install wget
 brew install youtube-dl
+brew install zellij
 
 # Radicle
 curl -sSf https://radicle.xyz/install | sh
@@ -92,6 +95,8 @@ brew tap homebrew/cask-fonts
 brew cask install font-hack
 
 # GUI apps
+brew install alacritty
+
 brew cask install iterm2
 defaults write com.googlecode.iterm2 AlternateMouseScroll -bool true
 
