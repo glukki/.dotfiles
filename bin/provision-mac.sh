@@ -91,8 +91,8 @@ brew install zellij
 curl -sSf https://radicle.xyz/install | sh
 
 # Font
-brew tap homebrew/cask-fonts
-brew cask install font-hack
+brew install font-hack
+brew install font-hack-nerd-font
 
 # GUI apps
 brew install alacritty
