@@ -97,9 +97,6 @@ brew cask install font-hack
 # GUI apps
 brew install alacritty
 
-brew cask install iterm2
-defaults write com.googlecode.iterm2 AlternateMouseScroll -bool true
-
 brew cask install authy
 brew cask install balenaetcher
 brew cask install dash
