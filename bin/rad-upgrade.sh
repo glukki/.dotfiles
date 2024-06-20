@@ -12,7 +12,7 @@ tar -caf ~/radicle-backups_"$(date -Idate)".tar.gz --exclude control.sock -C "$(
 echo
 echo Old version: $(rad --version)
 
-curl -sSf https://radicle.xyz/install | sh
+curl -sSf https://radicle.xyz/install | sh -s -- --no-modify-path
 
 echo
 echo New version: $(rad --version)
