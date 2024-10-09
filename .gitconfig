@@ -15,3 +15,5 @@
 	path = /Volumes/projects/.gitconfig
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
