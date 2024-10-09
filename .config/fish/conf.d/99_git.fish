@@ -16,7 +16,7 @@ abbr -a gpr         git pull-request
 abbr -a gprd        git pull-request -b dev
 abbr -a gprstage    git pull-request -b stage
 abbr -a grbi        git rebase --interactive --autostash
-abbr -a grbim       git rebase --interactive --autostash --autosquash origin/\(git config get init.defaultbranch\)
+abbr -a grbim       git rebase --interactive --autostash --autosquash --rebase-merges origin/\(git config get init.defaultbranch\)
 abbr -a gstau       git stash save --include-untracked
 abbr -a gcn!        git commit -v --no-edit --amend
 abbr -a gcf         git commit --fixup
