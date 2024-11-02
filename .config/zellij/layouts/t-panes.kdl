@@ -1,0 +1,18 @@
+layout {
+    cwd "/Volumes/projects/"
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+
+    pane split_direction="horizontal" {
+        pane split_direction="vertical" {
+            pane name="db"
+            pane name="server"
+        }
+        pane name="shell" focus=true
+    }
+
+    pane size=2 borderless=true {
+        plugin location="status-bar"
+    }
+}
