@@ -97,7 +97,6 @@ brew install font-hack-nerd-font
 # GUI apps
 brew install alacritty
 
-brew cask install authy
 brew cask install balenaetcher
 brew cask install dash
 brew cask install discord
@@ -116,7 +115,6 @@ brew cask install sublime-merge
 brew cask install sublime-text
 brew cask install telegram
 brew cask install transmission
-brew cask install tunnelblick
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
