@@ -19,3 +19,10 @@ SpoonInstall:andUse("WindowGrid", {
 hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "c", function()
 	hs.execute("open ~/.hammerspoon/init.lua")
 end)
+
+-- switch keyboard layout by Cmd+Ctrl+1/2/3
+for idx, layout in pairs(hs.keycodes.layouts()) do
+	hs.hotkey.bind({ "ctrl", "cmd" }, tostring(idx), function()
+		hs.keycodes.setLayout(layout)
+	end)
+end
