@@ -1,6 +1,6 @@
 [terminal.shell]
 program = "/usr/local/bin/zellij"
-args = ["-l", "welcome"]
+args = ["--layout", "welcome"]
 
 [window]
 decorations = "None"
