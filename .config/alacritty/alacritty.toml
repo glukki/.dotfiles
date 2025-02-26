@@ -25,6 +25,9 @@ bindings = [
   { key = "9", mods = "Command", action = "ReceiveChar" },
 ]
 
+[font]
+normal = { family = "Hack Nerd Font", style = "Regular" }
+
 # KDE Breeze (Ported from Konsole)
 [colors.primary]
 background = '#232627'
