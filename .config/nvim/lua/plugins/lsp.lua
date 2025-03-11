@@ -64,15 +64,15 @@ return {
       vim.opt.signcolumn = "yes"
     end,
     config = function()
-      local lsp_defaults = require("lspconfig").util.default_config
-
       -- Add cmp_nvim_lsp capabilities settings to lspconfig
       -- This should be executed before you configure any language server
-      lsp_defaults.capabilities = vim.tbl_deep_extend(
-        "force",
-        lsp_defaults.capabilities,
-        require("cmp_nvim_lsp").default_capabilities()
-      )
+      (function(config)
+        config.capabilities = vim.tbl_deep_extend(
+          "force",
+          config.capabilities,
+          require("cmp_nvim_lsp").default_capabilities()
+        )
+      end)(require("lspconfig").util.default_config)
 
       -- LspAttach is where you enable features that only work
       -- if there is a language server active in the file
