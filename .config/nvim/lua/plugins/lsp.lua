@@ -109,8 +109,9 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP actions",
         callback = function(event)
-          local opts = { buffer = event.buf }
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
 
+          local opts = { buffer = event.buf }
           vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
           vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
           vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
@@ -121,19 +122,13 @@ return {
           vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
           vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", opts)
           vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-        end,
-      })
 
-      vim.api.nvim_create_autocmd("LspAttach", {
-        callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if not client then return end
-
-          if client.supports_method("textDocument/formatting") then
+          -- Format on save
+          if client and client.supports_method("textDocument/formatting") then
             vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = args.buf,
+              buffer = event.buf,
               callback = function()
-                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
               end,
             })
           end
