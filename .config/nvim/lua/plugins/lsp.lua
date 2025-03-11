@@ -74,6 +74,36 @@ return {
         )
       end)(require("lspconfig").util.default_config)
 
+      -- Runs LSP server setup
+      ---@param server_name string
+      ---@param opts? table
+      local setupLspServer = function(server_name, opts)
+        require("lspconfig")[server_name].setup(opts or {})
+      end
+
+      require("mason-lspconfig").setup({
+        automatic_installation = false,
+        ensure_installed = {
+          -- nvim
+          "lua_ls",
+          -- server
+          "nil_ls",
+          -- system
+          "rust_analyzer",
+          -- web
+          "denols",
+          "tailwindcss",
+        },
+        handlers = {
+          -- first function is the "default handler"
+          setupLspServer,
+          ["denols"] = function()
+            vim.g.markdown_fenced_languages = { "ts=typescript" }
+            setupLspServer("denols")
+          end,
+        }
+      })
+
       -- LspAttach is where you enable features that only work
       -- if there is a language server active in the file
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -92,24 +122,6 @@ return {
           vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", opts)
           vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         end,
-      })
-
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "denols",
-        },
-        handlers = {
-          -- this first function is the "default handler"
-          -- it applies to every language server without a "custom handler"
-          function(server_name)
-            require("lspconfig")[server_name].setup({})
-          end,
-          ["denols"] = function()
-            vim.g.markdown_fenced_languages = { "ts=typescript" }
-            require("lspconfig").denols.setup({})
-          end,
-        }
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {
