@@ -35,8 +35,19 @@ return {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["C-p"] = cmp.mapping.select_prev_item(cmp_select),
           ["C-n"] = cmp.mapping.select_next_item(cmp_select),
+          ["<Tab>"] = function(fallback)
+            if not cmp.visible() then
+              return fallback()
+            end
+
+            local entry = cmp.get_selected_entry()
+            if not entry then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            end
+            cmp.confirm()
+          end,
           --[[
-          ["CR"] = cmp.mapping.confirm({ selected = true }),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
           --]]
@@ -122,7 +133,7 @@ return {
           vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
           vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
           vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", opts)
-          vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+          vim.keymap.set("n", "<M-CR>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
