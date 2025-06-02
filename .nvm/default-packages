@@ -5,3 +5,7 @@ prettier
 zx
 wrangler
 ynpx
+
+bash-language-server
+dockerfile-language-server-nodejs
+@microsoft/compose-language-service
