@@ -9,3 +9,5 @@ ynpx
 bash-language-server
 dockerfile-language-server-nodejs
 @microsoft/compose-language-service
+typescript-language-server
+typescript

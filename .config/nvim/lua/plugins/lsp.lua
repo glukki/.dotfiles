@@ -98,12 +98,18 @@ return {
           -- nvim
           "lua_ls",
           -- server
+          "bashls",
+          "nginx_language_server",
+          "docker_compose_language_service",
+          "dockerls",
           "nil_ls",
           -- system
           "rust_analyzer",
           -- web
+          "html",
           "denols",
           "tailwindcss",
+          "ts_ls"
         },
         handlers = {
           -- first function is the "default handler"
