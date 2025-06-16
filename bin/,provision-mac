@@ -94,6 +94,7 @@ brew install youtube-dl
 # Crates
 cargo install solo2
 cargo install flamegraph
+cargo install xh
 cargo install zellij
 
 # Radicle
