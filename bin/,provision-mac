@@ -80,7 +80,6 @@ brew install neovim
 brew install node
 brew install nvm
 brew install rclone
-brew install ripgrep
 brew install rtmpdump
 brew install rust
 brew install shellcheck
@@ -91,11 +90,16 @@ brew install watchman
 brew install wget
 brew install youtube-dl
 
+# Crates binary fetcher
+cargo install cargo-binstall
+
 # Crates
-cargo install solo2
-cargo install flamegraph
-cargo install xh
-cargo install zellij
+cargo binstall fd-find
+cargo binstall flamegraph
+cargo binstall ripgrep
+cargo binstall solo2
+cargo binstall xh
+cargo binstall zellij
 
 # Radicle
 curl -sSf https://radicle.xyz/install | sh
