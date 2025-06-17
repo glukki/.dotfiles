@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
-dig +short myip.opendns.com @resolver1.opendns.com
+xh -jb https://ipinfo.io
