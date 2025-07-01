@@ -98,11 +98,15 @@ cargo binstall fd-find
 cargo binstall flamegraph
 cargo binstall ripgrep
 cargo binstall solo2
+cargo binstall --git https://github.com/astral-sh/uv uv
 cargo binstall xh
 cargo binstall zellij
 
 # Radicle
 curl -sSf https://radicle.xyz/install | sh
+
+# UV tools
+uv tool install --python 3.12 openhands-ai
 
 # Font
 brew install font-hack
