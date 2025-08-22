@@ -5,3 +5,4 @@ fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
 fish_add_path ~/.radicle/bin
 fish_add_path ~/go/bin
+fish_add_path ~/.codeium/windsurf/bin
