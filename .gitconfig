@@ -11,6 +11,8 @@
 [rebase]
 	autosquash = false
 [commit]
+[includeif "gitdir:~/projects/"]
+	path = ~/projects/.gitconfig
 [includeif "gitdir:/Volumes/projects/"]
 	path = /Volumes/projects/.gitconfig
 [init]

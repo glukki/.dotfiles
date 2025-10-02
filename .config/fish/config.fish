@@ -1,5 +1,5 @@
 ## dirs
-abbr -a cdp cd /Volumes/projects/
+abbr -a cdp cd ~/projects/
 
 # pnpm
 set -gx PNPM_HOME "/Users/glukki/Library/pnpm"
