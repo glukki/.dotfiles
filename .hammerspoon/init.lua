@@ -20,8 +20,14 @@ hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "c", function()
 	hs.execute("open ~/.hammerspoon/init.lua")
 end)
 
+local layouts = {
+	"U.S.",
+	"Russian – PC",
+	"Spanish"
+}
+
 -- switch keyboard layout with Cmd+Shift+1/2/3, equal to Alt+Shift+1/2/3 on Windows
-for idx, layout in pairs(hs.keycodes.layouts()) do
+for idx, layout in pairs(layouts) do
 	hs.hotkey.bind({ "cmd", "shift" }, tostring(idx), function()
 		hs.keycodes.setLayout(layout)
 	end)
