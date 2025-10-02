@@ -1,6 +1,6 @@
 [terminal.shell]
-program = "/usr/local/bin/zellij"
-args = ["--layout", "welcome"]
+program = "bash"
+args = [ "-c", "$HOME/.cargo/bin/zellij", "--layout", "welcome" ]
 
 [window]
 decorations = "None"
