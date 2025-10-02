@@ -1,7 +1,9 @@
 package brew
 package foreign-env
+package gh
 package gi
+package git-flow
+package gityaw
 package https://github.com/jhillyerd/plugin-git
-package hub
 package nvm
 theme default
