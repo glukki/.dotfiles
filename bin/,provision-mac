@@ -96,13 +96,13 @@ brew install youtube-dl
 cargo install cargo-binstall
 
 # Crates
-cargo binstall fd-find
-cargo binstall flamegraph
-cargo binstall ripgrep
-cargo binstall solo2
-cargo binstall --git https://github.com/astral-sh/uv uv
-cargo binstall xh
-cargo binstall zellij
+cargo binstall -y fd-find
+cargo binstall -y flamegraph
+cargo binstall -y ripgrep
+cargo binstall -y solo2
+cargo binstall -y --git https://github.com/astral-sh/uv uv
+cargo binstall -y xh
+cargo binstall -y zellij
 
 # Radicle
 curl -sSf https://radicle.xyz/install | sh
