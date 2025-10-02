@@ -50,6 +50,7 @@ FISH_PATH = "$(brew --repo)/bin/fish"
 echo $FISH_PATH | sudo tee -a /etc/shells
 chsh -s $FISH_PATH
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install
 
 # Taps
 brew tap heroku/brew
