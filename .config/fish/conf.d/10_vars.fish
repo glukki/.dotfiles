@@ -2,10 +2,11 @@
 
 set -l FILE ~/.secrets/secrets.fish
 
-if not test -e $FILE; or not source $FILE
+if not test -e "$FILE"
   echo "Fish config is missing `secrets` file"
   echo "touch $FILE"
 else
+  source "$FILE"
   set -l envVar
   for envVar in NPM_TOKEN HOMEBREW_GITHUB_API_TOKEN GEMFURY_TOKEN
     if not set -q $envVar
