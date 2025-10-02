@@ -39,15 +39,16 @@ defaults write com.apple.finder NewWindowTarget "PfHm"
 defaults write com.apple.finder NewWindowTargetPath "file://$HOME/"
 
 # Nix
-/bin/sh <(curl -L https://nixos.org/nix/install)
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
 
 # Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Shell
 brew install fish
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
+FISH_PATH = "$(brew --repo)/bin/fish"
+echo $FISH_PATH | sudo tee -a /etc/shells
+chsh -s $FISH_PATH
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 # Taps
@@ -116,28 +117,28 @@ brew install font-hack-nerd-font
 # GUI apps
 brew install alacritty
 
-brew cask install balenaetcher
-brew cask install dash
-brew cask install discord
-brew cask install docker
-brew cask install figma
-brew cask install google-chrome
-brew cask install hammerspoon
-brew cask install imageoptim
-brew cask install insomnia
-brew cask install jetbrains-toolbox
-brew cask install mpv
-brew cask install resilio-sync
-brew cask install slack
-brew cask install spotify
-brew cask install sublime-merge
-brew cask install sublime-text
-brew cask install telegram
-brew cask install transmission
-brew cask install virtualbox
-brew cask install virtualbox-extension-pack
-brew cask install visual-studio-code
-brew cask install zoom
+brew install balenaetcher
+brew install dash
+brew install discord
+brew install docker
+brew install figma
+brew install google-chrome
+brew install hammerspoon
+brew install imageoptim
+brew install insomnia
+brew install jetbrains-toolbox
+brew install mpv
+brew install resilio-sync
+brew install slack
+brew install spotify
+brew install sublime-merge
+brew install sublime-text
+brew install telegram
+brew install transmission
+brew install virtualbox
+brew install virtualbox-extension-pack
+brew install visual-studio-code
+brew install zoom
 
 # associate file extensions with mpv player
 duti -s io.mpv avi viewer
