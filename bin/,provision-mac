@@ -53,7 +53,6 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 omf install
 
 # Taps
-brew tap heroku/brew
 brew tap mongodb/brew
 
 # Shell apps
