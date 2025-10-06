@@ -52,6 +52,17 @@ chsh -s $FISH_PATH
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 omf install
 
+# Containers
+# Note: `molten-vk-krunkit` formula conflicts with `molten-vk` formula
+brew tap slp/krunkit
+brew install \
+  krunkit \
+  podman \
+  podman-desktop \
+  podman-compose \
+  podman-tui
+podman machine init
+
 # Taps
 brew tap mongodb/brew
 
@@ -120,7 +131,6 @@ brew install alacritty
 brew install balenaetcher
 brew install dash
 brew install discord
-brew install docker
 brew install figma
 brew install google-chrome
 brew install hammerspoon
@@ -128,6 +138,7 @@ brew install imageoptim
 brew install insomnia
 brew install jetbrains-toolbox
 brew install mpv
+brew install mpv # run again to skip krunkit conflict
 brew install resilio-sync
 brew install slack
 brew install spotify
