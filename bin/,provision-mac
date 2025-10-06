@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Mac provisioning script
+# Mac setup script
 
 # UI
 defaults write .GlobalPreferences AppleAccentColor 1
@@ -67,41 +67,42 @@ podman machine init
 brew tap mongodb/brew
 
 # Shell apps
-brew install curl
-brew install direnv
-brew install dnsmasq
-brew install cloudflare/cloudflare/cloudflared
-brew install parallel
-brew install teleport
-brew install difftastic
-brew install duti
-brew install exercism
-brew install ffmpeg
-brew install gh
-brew install git
-brew install gnu-time
-brew install go
-brew install graphviz
-brew install hostess
-brew install htop
-brew install httrack
-brew install hub
-brew install jq
-brew install mas
-brew install micro
-brew install neovim
-brew install node
-brew install nvm
-brew install rclone
-brew install rtmpdump
-brew install rust
-brew install shellcheck
-brew install speedtest-cli
-brew install stow
-brew install tldr
-brew install watchman
-brew install wget
-brew install youtube-dl
+brew install \
+  curl \
+  direnv \
+  dnsmasq \
+  cloudflare/cloudflare/cloudflared \
+  parallel \
+  teleport \
+  difftastic \
+  duti \
+  exercism \
+  ffmpeg \
+  gh \
+  git \
+  gnu-time \
+  go \
+  graphviz \
+  hostess \
+  htop \
+  httrack \
+  hub \
+  jq \
+  mas \
+  micro \
+  neovim \
+  node \
+  nvm \
+  rclone \
+  rtmpdump \
+  rust \
+  shellcheck \
+  speedtest-cli \
+  stow \
+  tldr \
+  watchman \
+  wget \
+  youtube-dl
 
 # Crates binary fetcher
 cargo install cargo-binstall
@@ -122,34 +123,39 @@ curl -sSf https://radicle.xyz/install | sh
 uv tool install --python 3.12 openhands-ai
 
 # Font
-brew install font-hack
-brew install font-hack-nerd-font
+brew install \
+  font-hack \
+  font-hack-nerd-font
 
 # GUI apps
 brew install alacritty
 
-brew install balenaetcher
-brew install dash
-brew install discord
-brew install figma
-brew install google-chrome
-brew install hammerspoon
-brew install imageoptim
-brew install insomnia
-brew install jetbrains-toolbox
+brew install \
+  balenaetcher \
+  dash \
+  discord \
+  figma \
+  google-chrome \
+  hammerspoon \
+  imageoptim \
+  insomnia \
+  jetbrains-toolbox \
+  mpv \
+  resilio-sync \
+  slack \
+  spotify \
+  sublime-merge \
+  sublime-text \
+  telegram \
+  transmission \
+  virtualbox \
+  virtualbox-extension-pack \
+  visual-studio-code \
+  zoom
+
+# run again to skip krunkit conflict
 brew install mpv
-brew install mpv # run again to skip krunkit conflict
-brew install resilio-sync
-brew install slack
-brew install spotify
-brew install sublime-merge
-brew install sublime-text
-brew install telegram
-brew install transmission
-brew install virtualbox
-brew install virtualbox-extension-pack
-brew install visual-studio-code
-brew install zoom
+
 
 # associate file extensions with mpv player
 duti -s io.mpv avi viewer
