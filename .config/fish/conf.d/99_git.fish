@@ -26,9 +26,15 @@ function gcfr
   and git commit --fixup "$argv";
   and git rebase -i --autosquash "$rev^"
 end
+
 function gpsup
   git push --set-upstream origin (git branch | grep \* | cut -d ' ' -f2) $argv
 end
-function gcbt
-  git checkout -b task/$argv origin/(git config get init.defaultbranch)
+
+function gcbf
+  git checkout -b feature/$argv origin/(git config get init.defaultbranch)
+end
+
+function gcbh
+  git checkout -b hotfix/$argv origin/(git config get init.defaultbranch)
 end
