@@ -1,6 +1,5 @@
 package brew
 package foreign-env
-package gh
 package gi
 package git-flow
 package gityaw
