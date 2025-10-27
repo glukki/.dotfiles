@@ -100,6 +100,7 @@ brew install \
   speedtest-cli \
   stow \
   tldr \
+  uv \
   watchman \
   wget \
   youtube-dl
@@ -112,7 +113,6 @@ cargo binstall -y fd-find
 cargo binstall -y flamegraph
 cargo binstall -y ripgrep
 cargo binstall -y solo2
-cargo binstall -y --git https://github.com/astral-sh/uv uv
 cargo binstall -y xh
 cargo binstall -y zellij
 
