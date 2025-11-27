@@ -95,7 +95,7 @@ brew install \
   nvm \
   rclone \
   rtmpdump \
-  rust \
+  rustup \
   shellcheck \
   speedtest-cli \
   stow \
@@ -105,6 +105,8 @@ brew install \
   wget \
   youtube-dl
 
+# Rust
+rustup default stable
 # Crates binary fetcher
 cargo install cargo-binstall
 
