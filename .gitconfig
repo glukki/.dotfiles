@@ -13,8 +13,6 @@
 [commit]
 [includeif "gitdir:~/projects/"]
 	path = ~/projects/.gitconfig
-[includeif "gitdir:/Volumes/projects/"]
-	path = /Volumes/projects/.gitconfig
 [init]
 	defaultBranch = main
 [rerere]
