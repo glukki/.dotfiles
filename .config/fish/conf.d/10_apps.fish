@@ -6,3 +6,4 @@ abbr -a pcf  ping 1.1.1.1
 
 alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
 alias docker=podman
+alias docker-compose=podman-compose
