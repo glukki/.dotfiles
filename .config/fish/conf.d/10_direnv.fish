@@ -1,3 +1,5 @@
+echo 10_direnv
+
 ## direnv - add hook
 function __direnv_export_eval --on-event fish_prompt;
   eval (direnv export fish);

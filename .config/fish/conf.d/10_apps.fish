@@ -1,3 +1,5 @@
+echo 10_apps
+
 ## apps
 abbr -a caff caffeinate -i
 abbr -a pcf  ping 1.1.1.1

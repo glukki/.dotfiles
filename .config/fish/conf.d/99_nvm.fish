@@ -1,3 +1,5 @@
+echo 99_nvm
+
 # depends on OMF
 
 ## nvm - calling `nvm use` automatically in a directory with a .nvmrc file

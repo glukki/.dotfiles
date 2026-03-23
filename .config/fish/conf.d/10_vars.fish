@@ -1,3 +1,5 @@
+echo 10_vars
+
 ## secret vars
 
 set -l FILE ~/.secrets/secrets.fish

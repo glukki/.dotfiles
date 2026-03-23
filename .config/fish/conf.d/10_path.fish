@@ -1,3 +1,5 @@
+echo 10_path
+
 ## path
 fish_add_path /usr/local/sbin
 fish_add_path ~/bin

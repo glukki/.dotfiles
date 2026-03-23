@@ -1,3 +1,5 @@
+echo 99_git
+
 # should run after OMF to overwrite its git abbrs
 
 ## git shortcuts
