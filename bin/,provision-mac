@@ -80,6 +80,7 @@ brew install \
   ffmpeg \
   gh \
   git \
+  git-lfs \
   gnu-time \
   go \
   graphviz \
@@ -105,6 +106,9 @@ brew install \
   wget \
   xclip \
   youtube-dl
+
+# Git
+git lfs install --system
 
 # Rust
 rustup default stable
