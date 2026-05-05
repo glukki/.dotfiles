@@ -27,7 +27,7 @@ defaults write .GlobalPreferences NSAutomaticTextCompletionEnabled 1
 defaults write .GlobalPreferences WebAutomaticSpellingCorrectionEnabled 1
 
 # Mouse
-defaults write .GlobalPreferences com.apple.mouse.scaling -1 # no mouse acceleration
+#defaults write .GlobalPreferences com.apple.mouse.scaling -1 # no mouse acceleration
 defaults write .GlobalPreferences com.apple.springing.enabled 1
 defaults write .GlobalPreferences com.apple.trackpad.forceClick 1
 
