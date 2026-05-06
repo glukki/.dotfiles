@@ -13,10 +13,6 @@ defaults write .GlobalPreferences AppleWindowTabbingMode always
 defaults write .GlobalPreferences _HIHideMenuBar 1
 defaults write .GlobalPreferences NSQuitAlwaysKeepsWindows 1
 
-# Sound
-defaults write .GlobalPreferences com.apple.sound.beep.feedback 0
-defaults write .GlobalPreferences com.apple.sound.beep.flash 0
-
 # Keyboard
 defaults write .GlobalPreferences NSAutomaticDashSubstitutionEnabled 1
 defaults write .GlobalPreferences NSAutomaticPeriodSubstitutionEnabled 0
@@ -37,6 +33,14 @@ defaults write com.apple.finder FXRemoveOldTrashItems 1
 defaults write com.apple.finder ShowRecentTags 0
 defaults write com.apple.finder NewWindowTarget "PfHm"
 defaults write com.apple.finder NewWindowTargetPath "file://$HOME/"
+
+# Dirs
+mkdir ~/projects
+
+# Configs
+cd ~/.dotfiles
+stow . --adopt
+cd
 
 # Nix
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
@@ -70,13 +74,9 @@ brew tap mongodb/brew
 brew install \
   curl \
   direnv \
-  dnsmasq \
-  cloudflare/cloudflare/cloudflared \
   parallel \
-  teleport \
   difftastic \
   duti \
-  exercism \
   ffmpeg \
   gh \
   git \
@@ -87,9 +87,7 @@ brew install \
   hostess \
   htop \
   httrack \
-  hub \
   jq \
-  mas \
   micro \
   neovim \
   node \
@@ -103,14 +101,14 @@ brew install \
   tldr \
   uv \
   watchman \
-  wget \
   xclip \
-  youtube-dl
+  yt-dlp
 
 # Git
-git lfs install --system
+sudo git lfs install --system
 
 # Rust
+rustup-init
 rustup default stable
 # Crates binary fetcher
 cargo install cargo-binstall
@@ -124,10 +122,7 @@ cargo binstall -y xh
 cargo binstall -y zellij
 
 # Radicle
-curl -sSf https://radicle.xyz/install | sh
-
-# UV tools
-uv tool install --python 3.12 openhands-ai
+curl -sSLf https://radicle.dev/install | sh
 
 # Font
 brew install \
@@ -135,33 +130,35 @@ brew install \
   font-hack-nerd-font
 
 # GUI apps
-brew install alacritty
-
-brew install \
+brew install --cask \
+  alacritty \
   balenaetcher \
   dash \
   discord \
   figma \
+  firefox \
+  freecad \
   google-chrome \
   hammerspoon \
   imageoptim \
   insomnia \
+  ipfs-desktop \
   jetbrains-toolbox \
   mpv \
+  orcaslicer \
   resilio-sync \
   slack \
   spotify \
   sublime-merge \
   sublime-text \
+  tailscale-app \
   telegram \
+  thunderbird \
   transmission \
   virtualbox \
-  virtualbox-extension-pack \
   visual-studio-code \
+  whatsapp \
   zoom
-
-# run again to skip krunkit conflict
-brew install mpv
 
 
 # associate file extensions with mpv player
@@ -186,7 +183,6 @@ mas install 407963104 & # Pixelmator
 mas install 1153157709 & # Speedtest
 mas install 409203825 & # Numbers
 mas install 497799835 & # Xcode
-mas install 1147396723 & # WhatsApp
 mas install 409201541 & # Pages
 mas install 1137020764 & # NotePlan 2
 mas install 408981434 & # iMovie
