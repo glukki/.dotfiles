@@ -1,7 +1,12 @@
 .PHONY: all
 all:
-	# Nothing to make by default.
-	# But you might want to run `make upgrade-nvim` when `kickstarter.nvim` upstream has changes to pull.
+	# Available targets:
+	# * link - link configs into home directory
+	# * upgrade-nvim - merge `kickstarter.nvim` upstream updates
+
+.PHONY: link
+link:
+	stow --adopt --ignore=Makefile .
 
 # Using `git subtree` to manage `.config/nvim/` as a clone of `kickstarter.nvim`
 # basics: https://gist.github.com/SKempin/b7857a6ff6bddb05717cc17a44091202

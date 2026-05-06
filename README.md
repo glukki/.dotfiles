@@ -5,11 +5,14 @@ Configuration files for everything. Use [stow](https://www.gnu.org/software/stow
 Install
 -------
 ```
-brew install stow
 cd ~
 git clone git@github.com:glukki/.dotfiles.git
 cd .dotfiles
-stow .
+
+# this will install stow
+./bin/,provision-mac
+
+make link
 ```
 
 More on `stow`
