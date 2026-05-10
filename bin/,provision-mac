@@ -107,6 +107,9 @@ brew install \
 # Git
 sudo git lfs install --system
 
+# Node
+npm install -g corepack
+
 # Rust
 rustup-init
 rustup default stable
