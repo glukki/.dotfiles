@@ -1,6 +1,7 @@
 [user]
 	email = vital.mesh@gmail.com
 	name = Vitalii (glukki) Meshchaninov
+	signingkey = ~/.ssh/id_ed25519
 [push]
 	default = simple
 [filter "lfs"]
@@ -11,9 +12,14 @@
 [rebase]
 	autosquash = false
 [commit]
+	gpgsign = true
 [includeif "gitdir:~/projects/"]
 	path = ~/projects/.gitconfig
 [init]
 	defaultBranch = main
 [rerere]
 	enabled = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers
