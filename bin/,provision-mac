@@ -147,6 +147,7 @@ brew install --cask \
   insomnia \
   ipfs-desktop \
   jetbrains-toolbox \
+  localsend \
   mpv \
   orcaslicer \
   resilio-sync \
