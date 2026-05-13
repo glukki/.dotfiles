@@ -1,0 +1,12 @@
+# Comments and blank lines are allowed.
+
+\.git
+\.gitignore
+\.gitmodules
+
+\.DS_Store
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+^/Makefile
