@@ -117,6 +117,7 @@ rustup default stable
 cargo install cargo-binstall
 
 # Crates
+cargo binstall -y cargo-update
 cargo binstall -y fd-find
 cargo binstall -y flamegraph
 cargo binstall -y ripgrep
