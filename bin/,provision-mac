@@ -135,6 +135,33 @@ brew install \
   font-hack \
   font-hack-nerd-font
 
+# Pi stack
+curl -fsSL https://raw.githubusercontent.com/nikvdp/cco/master/install.sh | bash
+pnpm add -g --ignore-scripts @earendil-works/pi-coding-agent
+
+#pi install npm:taskplane
+
+pi install npm:@tintinweb/pi-subagents
+pi install npm:@tintinweb/pi-tasks
+pi install npm:pi-supervisor
+
+pi install npm:pi-ask-user
+pi install npm:pi-subagents
+pi install npm:pi-intercom
+pi install npm:pi-web-access
+pi install git:github.com/code-yeongyu/pi-ast-grep
+
+pnpm add -g --ignore-scripts gitnexus
+pi install npm:pi-gitnexus
+
+pnpm add -g --ignore-scripts agent-browser
+agent-browser install
+pi install npm:pi-agent-browser-native
+
+curl -fsSL https://bun.com/install | bash
+source ~/.config/fish/config.fish
+bunx @every-env/compound-plugin install compound-engineering --to pi
+
 # GUI apps
 brew install --cask \
   alacritty \
