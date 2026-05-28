@@ -1,0 +1,111 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Defaults
+SOURCE_DIR="."
+OUTPUT_FILE=""
+OUTPUT_FILE_SPECIFIED=false
+
+usage() {
+  echo "Usage: ,images-to-pdf [options] [directory]"
+  echo ""
+  echo "Options:"
+  echo "  -o, --output <file>    Specify the output PDF file (default: <directory_name>.pdf)"
+  echo "  -h, --help             Show this help message"
+  echo ""
+  echo "Positional Arguments:"
+  echo "  directory               The directory containing source files (default: current directory)"
+  echo ""
+  echo "Example:"
+  echo "  ,images-to-pdf -o my_photos.pdf ./images"
+  echo "  ,images-to-pdf ./images"
+  exit 0
+}
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      usage
+      ;;
+    -o|--output)
+      if [[ -n "${2:-}" && "${2}" != -* ]]; then
+        OUTPUT_FILE="$2"
+        OUTPUT_FILE_SPECIFIED=true
+        shift 2
+      else
+        echo "Error: --output requires an argument"
+        exit 1
+      fi
+      ;;
+    -*)
+      echo "Error: Unknown option $1"
+      usage
+      ;;
+    *)
+      # If it doesn't start with '-', treat it as the directory
+      SOURCE_DIR="$1"
+      shift
+      ;;
+  esac
+done
+
+# Validate directory
+if [[ ! -d "$SOURCE_DIR" ]]; then
+  echo "Error: Directory '$SOURCE_DIR' does not exist."
+  exit 1
+fi
+
+# Get absolute path for SOURCE_DIR
+ABS_SOURCE_DIR=$(cd "$SOURCE_DIR" && pwd)
+
+if [[ "$OUTPUT_FILE_SPECIFIED" = false ]]; then
+  if [[ "$ABS_SOURCE_DIR" == "/" ]]; then
+    OUTPUT_FILE="images.pdf"
+  else
+    OUTPUT_FILE="$(basename "$ABS_SOURCE_DIR").pdf"
+  fi
+fi
+
+SOURCE_DIR="$ABS_SOURCE_DIR"
+
+# Check if img2pdf is installed
+if ! command -v img2pdf &> /dev/null; then
+  echo "Error: img2pdf is not installed. Please install it to use this script."
+  exit 1
+fi
+
+# Collect all images
+IMAGES=()
+# Use a single glob pattern to avoid duplicates
+shopt -s nullglob
+for f in "$SOURCE_DIR"/*.[jJ][pP][gG] "$SOURCE_DIR"/*.[jJ][pP][eE][gG] "$SOURCE_DIR"/*.[pP][nN][gG] "$SOURCE_DIR"/*.[wW][eE][bB][pP]; do
+  if [[ -f "$f" ]]; then
+    IMAGES+=("$f")
+  fi
+done
+shopt -u nullglob
+
+if [[ ${#IMAGES[@]} -eq 0 ]]; then
+  echo "Error: No supported images found in directory: $SOURCE_DIR"
+  exit 1
+fi
+
+# Sort images to ensure consistent PDF order
+sorted_images=()
+while IFS= read -r line; do
+  sorted_images+=("$line")
+done < <(printf "%s\n" "${IMAGES[@]}" | sort)
+
+echo "Found ${#sorted_images[@]} images in: $SOURCE_DIR"
+echo "Creating PDF: $OUTPUT_FILE"
+
+# Run img2pdf
+# Use "${sorted_images[@]}" to handle spaces in filenames correctly
+if img2pdf "${sorted_images[@]}" -o "$OUTPUT_FILE"; then
+  echo "Done. PDF created at '$OUTPUT_FILE'"
+else
+  echo "Error: Failed to create PDF."
+  exit 1
+fi
