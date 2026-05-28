@@ -6,7 +6,7 @@ all:
 
 .PHONY: link
 link:
-	stow --adopt --ignore=Makefile .
+	stow --adopt .
 
 # Using `git subtree` to manage `.config/nvim/` as a clone of `kickstarter.nvim`
 # basics: https://gist.github.com/SKempin/b7857a6ff6bddb05717cc17a44091202
