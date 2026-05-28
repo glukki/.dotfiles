@@ -1,0 +1,86 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Defaults
+TARGET_WIDTH=1024
+SOURCE_DIR="."
+OUTPUT_DIR="thumbs"
+
+usage() {
+  echo "Usage: ,image-resize [options] [directory]"
+  echo ""
+  echo "Options:"
+  echo "  -w, --width <width>    Set the target width (default: 1024)"
+  echo "  -h, --help             Show this help message"
+  echo ""
+  echo "Positional Arguments:"
+  echo "  directory               The directory containing source files (default: current directory)"
+  echo ""
+  echo "Example:"
+  echo "  ,image-resize -w 800 ./images"
+  echo "  ,image-resize ./images"
+  exit 0
+}
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      usage
+      ;;
+    -w|--width)
+      if [[ -n "${2:-}" && "${2}" != -* ]]; then
+        TARGET_WIDTH="$2"
+        shift 2
+      else
+        echo "Error: --width requires an argument"
+        exit 1
+      fi
+      ;;
+    -*)
+      echo "Error: Unknown option $1"
+      usage
+      ;;
+    *)
+      # If it doesn't start with '-', treat it as the directory
+      SOURCE_DIR="$1"
+      shift
+      ;;
+  esac
+done
+
+# Validate directory
+if [[ ! -d "$SOURCE_DIR" ]]; then
+  echo "Error: Directory '$SOURCE_DIR' does not exist."
+  exit 1
+fi
+
+# Get absolute path for SOURCE_DIR
+SOURCE_DIR=$(cd "$SOURCE_DIR" && pwd)
+OUTPUT_DIR="$SOURCE_DIR/thumbs"
+
+# Create output directory
+mkdir -p "$OUTPUT_DIR"
+
+# Supported extensions
+EXTENSIONS=("jpg" "jpeg" "png" "webp")
+
+echo "Starting resize to width: $TARGET_WIDTH in directory: $SOURCE_DIR"
+
+# Loop through files
+for ext in "${EXTENSIONS[@]}"; do
+  # Use nullglob to handle cases where no files match the pattern
+  shopt -s nullglob
+  for f in "$SOURCE_DIR"/*."$ext"; do
+    # Check if it's a file (not a directory)
+    if [[ -f "$f" ]]; then
+      filename=$(basename "$f")
+      echo "Processing: $filename"
+      sips --resampleWidth "$TARGET_WIDTH" "$f" --out "$OUTPUT_DIR/$filename" > /dev/null 2>&1
+    fi
+  done
+  shopt -u nullglob
+done
+
+echo "Done. Thumbs saved in '$OUTPUT_DIR/'"
