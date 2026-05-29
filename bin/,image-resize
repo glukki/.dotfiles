@@ -64,7 +64,7 @@ OUTPUT_DIR="$SOURCE_DIR/thumbs"
 mkdir -p "$OUTPUT_DIR"
 
 # Supported extensions
-EXTENSIONS=("jpg" "jpeg" "png" "webp")
+EXTENSIONS=("jpg" "jpeg" "png")
 
 echo "Starting resize to width: $TARGET_WIDTH in directory: $SOURCE_DIR"
 
