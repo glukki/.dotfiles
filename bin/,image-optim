@@ -2,11 +2,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-FILE=${1:-}
-
-if [[ -z "$FILE" ]]; then
-        echo "Usage: image-optim <file>"
-        exit;
+if [[ $# -eq 0 ]]; then
+  echo "Usage: ,image-optim <file> [file2 ...]"
+  exit 1
 fi
 
-open -a /Applications/ImageOptim.app "${FILE}"
+open -a /Applications/ImageOptim.app "$@"
