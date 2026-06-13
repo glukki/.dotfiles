@@ -99,6 +99,7 @@ brew install \
   speedtest-cli \
   stow \
   tldr \
+  tree \
   uv \
   watchman \
   xclip \
