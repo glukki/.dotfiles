@@ -163,8 +163,8 @@ source ~/.config/fish/config.fish
 bunx @every-env/compound-plugin install compound-engineering --to pi
 
 # GUI apps
+brew install --cask --no-quarantine alacritty
 brew install --cask \
-  alacritty \
   balenaetcher \
   dash \
   discord \
