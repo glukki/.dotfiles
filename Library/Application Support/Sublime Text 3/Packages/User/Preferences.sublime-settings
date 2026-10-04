@@ -12,4 +12,5 @@
 	"show_encoding": true,
 	"trim_trailing_white_space_on_save": true,
 	"theme": "auto",
+	"word_wrap": false,
 }
