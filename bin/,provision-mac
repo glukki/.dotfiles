@@ -67,6 +67,7 @@ brew install \
   podman-compose \
   podman-tui
 podman machine init
+sudo ln -s (which podman) "$(brew --repo)/bin/docker"
 
 # Taps
 brew tap mongodb/brew
