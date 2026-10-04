@@ -44,6 +44,7 @@ cd
 
 # Nix
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
+"experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
