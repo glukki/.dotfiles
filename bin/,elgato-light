@@ -1,0 +1,33 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Usage: ,elgato-light [toggle|on|off]   (default: toggle)
+
+URL="http://${ELGATO_LIGHT_IP:-192.168.200.104}:9123/elgato/lights"
+ACTION=${1:-toggle}
+
+case "$ACTION" in
+  on) STATE=1 ;;
+  off) STATE=0 ;;
+  toggle)
+    if curl -fsS -m 3 "$URL" | grep -Eq '"on": ?1'; then
+      STATE=0
+    else
+      STATE=1
+    fi
+    ;;
+  *)
+    echo "Usage: $(basename "$0") [toggle|on|off]" >&2
+    exit 1
+    ;;
+esac
+
+curl -fsS -m 3 -X PUT -H 'Content-Type: application/json' \
+  -d "{\"lights\":[{\"on\":${STATE}}]}" "$URL" > /dev/null
+
+if [ "$STATE" = 1 ]; then
+  echo "Light is on 🌝"
+else
+  echo "Light is off 🌚"
+fi
